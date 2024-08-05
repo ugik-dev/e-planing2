@@ -26,16 +26,20 @@
 
                         if ($timelineStart <= $today && $timelineEnd >= $today) {
                         ?>
-                             <button {{ $totalSum != ($unitBudget->pagu ?? 0) ? 'disabled' : '' }} id="send-dipa"
-                                    class="btn btn-outline-warning shadow-sm bs-tooltip">Ajukan</button>
-                        <?php } ?>
-                        @endif
-                <button id="save-dipa" class="btn btn-outline-success shadow-sm bs-tooltip">Simpan</button>
-                <button id="edit-dipa" class="btn btn-outline-warning shadow-sm bs-tooltip">Ubah</button>
-                <button id="delete-dipa" class="btn btn-outline-danger shadow-sm bs-tooltip">Hapus</button>
-                 @elseif($dipa->status == 'draft')
-                 @endif
-                 @if ($dipa)
+                    <button {{ $totalSum != ($unitBudget->pagu ?? 0) ? 'disabled' : '' }} id="send-dipa"
+                        class="btn btn-outline-warning shadow-sm bs-tooltip">Ajukan</button>
+                    <button id="save-dipa" class="btn btn-outline-success shadow-sm bs-tooltip">Simpan</button>
+                    <button id="edit-dipa" class="btn btn-outline-warning shadow-sm bs-tooltip">Ubah</button>
+                    <button id="delete-dipa" class="btn btn-outline-danger shadow-sm bs-tooltip">Hapus</button>
+                    <?php } ?>
+                @else
+                    <button id="save-dipa" class="btn btn-outline-success shadow-sm bs-tooltip">Simpan</button>
+                    <button id="edit-dipa" class="btn btn-outline-warning shadow-sm bs-tooltip">Ubah</button>
+                    <button id="delete-dipa" class="btn btn-outline-danger shadow-sm bs-tooltip">Hapus</button>
+                @endif
+            @elseif($dipa->status == 'draft')
+            @endif
+            @if ($dipa)
                 @if (in_array($dipa->status, ['wait-kp', 'reject-kp']) &&
                         $dipa->work_unit_id == Auth::user()->employee?->work_unit_id &&
                         Auth::user()->hasRole(['KEPALA UNIT KERJA']))
@@ -122,9 +126,7 @@
                                 <td>Rp
                                     {{ number_format($budgetImplementations->first()->activity_total_sum, 0, ',', '.') }}
                                 </td>
-                                <td rowspan="" 
-                                    class="bs-tooltip"
-                                   >
+                                <td rowspan="" class="bs-tooltip">
                                     @php $i_note = 1 @endphp
                                     @foreach ($budgetImplementations->first()->activity->activityNote as $note)
                                         {!! $i_note != 1 ? '<br>' : '' !!}
