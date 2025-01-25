@@ -45,7 +45,7 @@ class DashboardController extends Controller
             $chartPagu['name'][] = $workUnit->name;
             $chartPagu['code'][] = $workUnit->code;
             $chartPagu['realisasi'][] = $workUnit->realisasi;
-            $chartPagu['pagu'][] = $workUnit->paguUnit->first()->nominal;
+            $chartPagu['pagu'][] = $workUnit->paguUnit->first()->nominal ?? 0;
             // $chartPagu['realisasi'][] =  $workUnit->paguUnit->first()->nominal;
         }
         // dd($waitinglist);

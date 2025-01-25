@@ -42,7 +42,7 @@ function enforceNumericInput(event) {
 function confirmDelete(id) {
     Swal.fire({
         title: "Anda yakin ingin hapus?",
-        text: "Data tidak dapat dikembalikan!",
+        text: "Data tidak dapat dikembalikan! jika data sudah terkait dengan data lain juga akan mempengaruhi data lain?",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",

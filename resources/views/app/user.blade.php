@@ -152,7 +152,7 @@
                                                     </path>
                                                 </svg>
                                             </a>
-                                            {{-- <a href="javascript:void(0);"
+                                            <a href="javascript:void(0);"
                                                 class="btn btn-sm btn-danger d-flex align-items-center ms-1"
                                                 role="button" onclick="confirmDelete({{ $user->id }});">
                                                 <i class="text-white" data-feather="trash-2"></i>
@@ -162,7 +162,7 @@
                                                 style="display: none;">
                                                 @csrf
                                                 @method('DELETE')
-                                            </form> --}}
+                                            </form>
                                         </div>
                                     </td>
                                 </tr>

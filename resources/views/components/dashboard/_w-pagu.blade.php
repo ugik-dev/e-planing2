@@ -21,8 +21,8 @@
                 </div>
 
                 <div class="balance-info">
-                    <h6>{{ $title . ' [' . $unitBudget->workUnit->name . '] [' . $year . ']' }}</h6>
-                    <p>Rp {{ number_format($unitBudget->pagu) }}</p>
+                    <h6>{{ $title . ' [' . ($unitBudget->workUnit->name ?? '-') . '] [' . $year . ']' }}</h6>
+                    <p>Rp {{ number_format($unitBudget->pagu ?? 0) }}</p>
                 </div>
             </div>
             {{-- 
